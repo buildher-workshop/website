@@ -39,4 +39,5 @@ services:
     volumes:
     - ./buildher:/app/buildher
     - ./website:/app/website
+    - ./media:/app/media
     - ./database:/app/database

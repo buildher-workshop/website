@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+{% if not is_root %}
+<h1>{{ page.title }}</h1>
+{% endif %}
+<div class="introduction">
+    {{ page.introduction|richtext }}
+    {% srcset_image page.banner height-480 %}
+</div>
+{{ page.content|richtext }}
+<div class="cards">
+{% for post in posts %}
+{% image post.banner fill-300x300-c0 as post_banner %}
+<div class="card" style="background-image: url({{ post_banner.url }}); background-size: {{ post_banner.width }}px {{ post_banner.height }}px; padding-top: {{ post_banner.height }}px;
+background-repeat: no-repeat;">
+    <div>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.introduction|richtext }}</p>
+    </div>
+    <div>
+        <a class="button" href="{{ post.url }}">Read more</a>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

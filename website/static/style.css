@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+header, footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #9abdb9;
+    padding: 0 2em 0em 2em;
+}
+header > h1 {
+    flex-grow: 1;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+}
+header ul, header ol, footer ul {
+    display: flex;
+    list-style: none;
+    gap: 1em;
+}
+header a, footer a {
+    color: initial;
+    text-decoration: none;
+}
+main {
+    padding: 2em;
+    min-height: 100vh;
+}
+main > h1 {
+    background-color: pink;
+    padding: 1rem;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.introduction {
+    text-align: center;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    width: 300px;
+    box-shadow: .1rem .1rem .1rem #d0d0d0;
+    border-radius: 1rem;
+    background-color: #f8f8f8;
+}
+.card > * {
+    padding: 0.5rem 2rem 1.5rem 2rem;
+}
+a.button {
+    background: #9abdb9;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: initial;
+}
