@@ -1,10 +1,42 @@
 ---
+x-django: &django
+  build:
+    context: .
+    dockerfile: docker/Dockerfile
+  environment: &django-environment
+    SECRET_KEY: ${SECRET_KEY}
+    URL: http://localhost:8000
+    CSRF_TRUSTED_ORIGINS: http://localhost:8000
 services:
-  django:
+  nginx:
     build:
-      context: .
-      dockerfile: docker/Dockerfile
+      context: nginx
+      dockerfile: Dockerfile
+    profiles:
+    - prod
+    ports:
+    - 8000:80/TCP
+    volumes:
+    - ./static:/usr/share/nginx/html/static
+  django:
+    <<: *django
+    profiles:
+    - prod
+    volumes:
+    - ./static:/app/static
+    - ./media:/app/media
+    - ./database:/app/database
+  django-dev:
+    <<: *django
+    profiles:
+    - dev
+    command: ./manage.py runserver 0.0.0.0:8000
     environment:
-      SECRET_KEY: ${SECRET_KEY}
+      <<: *django-environment
+      DEBUG: true
     ports:
     - 8000:8000/TCP
+    volumes:
+    - ./buildher:/app/buildher
+    - ./website:/app/website
+    - ./database:/app/database
