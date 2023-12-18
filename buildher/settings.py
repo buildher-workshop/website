@@ -40,6 +40,7 @@ CSRF_TRUSTED_ORIGINS = env.parse_value(env("CSRF_TRUSTED_ORIGINS"), list)
 # Application definition
 
 INSTALLED_APPS = [
+    "website",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",

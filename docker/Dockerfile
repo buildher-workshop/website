@@ -7,6 +7,7 @@ RUN poetry install --no-root --with=production
 
 WORKDIR /app
 COPY buildher buildher
+COPY website website
 COPY manage.py .
 
 COPY docker/entrypoint.sh /
