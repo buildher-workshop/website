@@ -12,6 +12,14 @@ Django = "^5.0"
 [tool.poetry.group.production.dependencies]
 gunicorn = "^21.2.0"
 
+[tool.black]
+
+[tool.ruff]
+fix = true
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
