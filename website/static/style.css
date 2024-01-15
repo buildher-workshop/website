@@ -42,6 +42,7 @@ main > h1 {
 .cards {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 .card {
     width: 300px;
