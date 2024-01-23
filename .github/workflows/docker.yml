@@ -21,9 +21,6 @@ jobs:
         - context: .
           file: docker/Dockerfile
           image-suffix: -django
-        - context: nginx
-          file: nginx/Dockerfile
-          image-suffix: -nginx
     permissions:
       contents: read
       packages: write

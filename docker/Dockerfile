@@ -13,6 +13,7 @@ WORKDIR /app
 COPY buildher buildher
 COPY website website
 COPY manage.py .
+RUN SECRET_KEY=insecure CSRF_TRUSTED_ORIGINS= DATABASE_URL= URL= ./manage.py collectstatic --noinput
 
 COPY docker/entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]

@@ -12,6 +12,7 @@ django-environ = "^0.11.2"
 wagtail = "^5.2.2"
 django-probes = "^1.7.0"
 psycopg = {extras = ["binary"], version = "^3.1.17"}
+whitenoise = "^6.6.0"
 
 [tool.poetry.group.production.dependencies]
 gunicorn = "^21.2.0"

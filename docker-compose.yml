@@ -3,28 +3,19 @@ x-django: &django
   build:
     context: .
     dockerfile: docker/Dockerfile
+  ports:
+  - 8000:8000/TCP
   environment: &django-environment
     SECRET_KEY: ${SECRET_KEY}
     URL: http://localhost:8000
     CSRF_TRUSTED_ORIGINS: http://localhost:8000
     DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres/postgres
 services:
-  nginx:
-    build:
-      context: nginx
-      dockerfile: Dockerfile
-    profiles:
-    - prod
-    ports:
-    - 8000:80/TCP
-    volumes:
-    - django_static:/usr/share/nginx/html/static
   django:
     <<: *django
     profiles:
     - prod
     volumes:
-    - django_static:/app/static
     - django_media:/app/media
   django-dev:
     <<: *django
@@ -34,8 +25,6 @@ services:
     environment:
       <<: *django-environment
       DEBUG: true
-    ports:
-    - 8000:8000/TCP
     volumes:
     - ./buildher:/app/buildher
     - ./website:/app/website
@@ -47,6 +36,5 @@ services:
     volumes:
     - pg_data:/var/lib/postgresql/data
 volumes:
-  django_static: {}
   django_media: {}
   pg_data: {}
