@@ -1,0 +1,145 @@
+[
+  {
+    "model": "website.socialmedia",
+    "pk": 1,
+    "fields": {
+      "facebook": "https://www.facebook.com/profile.php?id=100088918615684",
+      "instagram": "https://www.instagram.com/buildherworkshop/"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 1,
+    "fields": {
+      "path": "0001",
+      "depth": 1,
+      "numchild": 2,
+      "title": "Root",
+      "slug": "root",
+      "content_type": 1,
+      "url_path": "/"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 3,
+    "fields": {
+      "path": "00010002",
+      "depth": 2,
+      "numchild": 3,
+      "title": "BuildHer website",
+      "slug": "buildher-website",
+      "url_path": "/buildher-website/",
+      "content_type": ["website", "section"]
+    }
+  },
+  {
+    "model": "website.section",
+    "pk": 3,
+    "fields": {
+      "introduction": "<p data-block-key=\"asvhf\">BuildHer is a building community run by women.</p><p data-block-key=\"271j6\">A space for creativity and exploration.</p>",
+      "banner": null,
+      "content": ""
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 4,
+    "fields": {
+      "path": "000100020001",
+      "depth": 3,
+      "numchild": 1,
+      "title": "Events",
+      "slug": "events",
+      "url_path": "/buildher-website/events/",
+      "show_in_menus": true,
+      "content_type": ["website", "section"]
+    }
+  },
+  {
+    "model": "website.section",
+    "pk": 4,
+    "fields": {
+      "introduction": "Our events",
+      "banner": null,
+      "content": ""
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 5,
+    "fields": {
+      "path": "000100020002",
+      "depth": 3,
+      "title": "FAQ",
+      "slug": "faq",
+      "url_path": "/buildher-website/faq/",
+      "show_in_menus": true,
+      "content_type": ["website", "section"]
+    }
+  },
+  {
+    "model": "website.section",
+    "pk": 5,
+    "fields": {
+      "introduction": "<h2 data-block-key=\"1p7mx\">Where are you?</h2><p data-block-key=\"61v9i\">...</p>",
+      "banner": null,
+      "content": ""
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 6,
+    "fields": {
+      "path": "000100020003",
+      "depth": 3,
+      "title": "About",
+      "slug": "about",
+      "url_path": "/buildher-website/about/",
+      "show_in_menus": true,
+      "content_type": ["website", "section"]
+    }
+  },
+  {
+    "model": "website.section",
+    "pk": 6,
+    "fields": {
+      "title": "About",
+      "introduction": "",
+      "banner": null,
+      "content": "<p data-block-key=\"0yypr\">BuildHer came to life after we started to wonder where are the other women who want to build things? Can we have a creative community? And so the idea of BuildHer was born!</p>"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 7,
+    "fields": {
+      "path": "0001000200010001",
+      "depth": 4,
+      "title": "Workshop 1",
+      "slug": "workshop-1",
+      "url_path": "/buildher-website/events/workshop-1",
+      "content_type": ["website", "post"]
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 7,
+    "fields": {
+      "introduction": "Build your own bench",
+      "banner": null,
+      "content": "Learn how to build your own bench"
+    }
+  },
+  {
+    "model": "wagtailcore.site",
+    "pk": 1,
+    "fields": {
+      "hostname": "0.0.0.0",
+      "port": 8000,
+      "site_name": "BuildHer",
+      "root_page": 3,
+      "is_default_site": true
+    }
+  }
+]
