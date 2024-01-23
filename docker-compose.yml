@@ -7,6 +7,7 @@ x-django: &django
     SECRET_KEY: ${SECRET_KEY}
     URL: http://localhost:8000
     CSRF_TRUSTED_ORIGINS: http://localhost:8000
+    DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres/postgres
 services:
   nginx:
     build:
@@ -17,15 +18,14 @@ services:
     ports:
     - 8000:80/TCP
     volumes:
-    - ./static:/usr/share/nginx/html/static
+    - django_static:/usr/share/nginx/html/static
   django:
     <<: *django
     profiles:
     - prod
     volumes:
-    - ./static:/app/static
-    - ./media:/app/media
-    - ./database:/app/database
+    - django_static:/app/static
+    - django_media:/app/media
   django-dev:
     <<: *django
     profiles:
@@ -39,5 +39,14 @@ services:
     volumes:
     - ./buildher:/app/buildher
     - ./website:/app/website
-    - ./media:/app/media
-    - ./database:/app/database
+    - django_media:/app/media
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+    - pg_data:/var/lib/postgresql/data
+volumes:
+  django_static: {}
+  django_media: {}
+  pg_data: {}

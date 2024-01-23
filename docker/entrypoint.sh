@@ -4,6 +4,7 @@ source $(poetry env info --path)/bin/activate
 
 set -ex
 
+./manage.py wait_for_database --stable 0
 ./manage.py migrate --noinput
 if ! ./manage.py shell -c "from django.conf import settings; exit(settings.DEBUG)"
 then
